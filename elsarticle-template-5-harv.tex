@@ -21,27 +21,41 @@
 %% $Id: elsarticle-template-5-harv.tex 159 2009-10-08 06:08:33Z rishi $
 %% $URL: http://lenova.river-valley.com/svn/elsbst/trunk/elsarticle-template-5-harv.tex $
 %%
-%\documentclass[preprint,authoryear,12pt]{elsarticle}
+\documentclass[preprint,authoryear,12pt]{elsarticle}
 
 %% Use the option review to obtain double line spacing
 %% \documentclass[authoryear,preprint,review,12pt]{elsarticle}
 
 %% Use the options 1p,twocolumn; 3p; 3p,twocolumn; 5p; or 5p,twocolumn
 %% for a journal layout:
-%% \documentclass[final,authoryear,1p,times]{elsarticle}
-%% \documentclass[final,authoryear,1p,times,twocolumn]{elsarticle}
-%% \documentclass[final,authoryear,3p,times]{elsarticle}
-%% \documentclass[final,authoryear,3p,times,twocolumn]{elsarticle}
-%% \documentclass[final,authoryear,5p,times]{elsarticle}
-\documentclass[final,authoryear,5p,times,twocolumn, 12pt]{elsarticle}
+%%\documentclass[final,authoryear,1p,times]{elsarticle}
+%%\documentclass[final,authoryear,1p,times,twocolumn]{elsarticle}
+%%\documentclass[final,authoryear,3p,times]{elsarticle}
+%%\documentclass[final,authoryear,3p,times,twocolumn]{elsarticle}
+%%\documentclass[final,authoryear,5p,times]{elsarticle}
+%%\documentclass[final,authoryear,5p,times, twocolumn, 12pt]{elsarticle}
+
 
 %% if you use PostScript figures in your article
 %% use the graphics package for simple commands
 %% \usepackage{graphics}
 %% or use the graphicx package for more complicated commands
-%% \usepackage{graphicx}
+\usepackage[demo]{graphicx}
+\graphicspath{ {figura/} }
 %% or use the epsfig package if you prefer to use the old commands
-%% \usepackage{epsfig}
+%%\usepackage{epsfig}
+
+\usepackage[export]{adjustbox}
+\usepackage{float}
+\usepackage{dblfloatfix}
+\usepackage{lipsum}
+\usepackage{multicol}
+\setlength{\columnsep}{1cm}
+%%\setlength{\columnseprule}{1pt}
+%%\usepackage{geometry}
+%%\geometry{legalpaper, landscape, margin=2in}
+\usepackage[a4paper, total={7in, 9in}]{geometry}
+
 
 %% The amssymb package provides various useful mathematical symbols
 \usepackage{amssymb}
@@ -113,7 +127,7 @@
 %% \address[label2]{<address>}
 
 %\author{}
-\author{Candido, D. S.\corref{cor1}\fnref{fn1}}
+\author{Candido, D. S.\corref{cor1}}
 \ead{diogosantana@aneel.gov.br}
 \ead[url]{sigel.aneel.gov.br}
 
@@ -121,7 +135,7 @@
 \ead{osmarjr@unb.br}
 
 %\address{}
-\address{Universidade de Bras\'{\i}lia, Instituto de Ci\'encias Humanas, Departamento de Geografia, Bras\'{\i}lia, DF - Brasil}
+\address{Universidade de Bras\'{\i}lia, Instituto de Ci\^encias Humanas, Departamento de Geografia, Bras\'{\i}lia, DF - Brasil}
 
 
 \cortext[cor1]{Aluno de Mestrado}
@@ -144,17 +158,20 @@
 \end{frontmatter}
 
 % \linenumbers
-
 %% main text
 %\section{}
 \section{Introdu\c{c}\~ao}
 \label{sec1}
+\begin{multicols}{2}
+Com o advento e populariza\c{c}\~ao do Sistema de Infoma\c{c}\~ao Geogr\'afica (SIG) aliado com os avan\c{c}os decorrentes da evolu\c{c}\~ao da Tecnologia da Informa\c{c}\~ao e Comunicação (TIC) ocorrido nos \'ultimos anos, existe uma crescente demanda pela utiliza\c{c}\~ao das Informa\c{c}\~oes Geoespaciais (IG) abrangendo os mais diversos stakeholders em diferentes setores da sociedade \citep{Macharis2014AFlanders, Kounadi2016AdaptiveDatasets}.
 
-Com o advento e popularização dos Sistemas de Informações Geográficas (SIG) aliados com os avanços decorrentes da evolução da Tecnologia da Informação e Comunicação (TIC) ocorrido nos últimos anos, existe uma crescente demanda pela utilização das Informações Geoespaciais (IG) abrangendo os mais diversos stakeholders em diferentes setores da sociedade \citep{Macharis2014AFlanders}. Para a utilização das IG de forma eficiente e eficaz necessita-se que a organização desses específicos tipos de dados obedeça aos padrões e normas referentes a uma Infraestrutura de Dados Espaciais (IDE), que pode ser conceituada como um conjunto de políticas, padrões, tecnologia e acordos institucionais para o acesso, compartilhamento e organização das IG \citep{DAmore2012ICTManagement, Kobben2013TowardsInfrastructure, Stock2012ToInfrastructure}.
+
+
+Para a utilização das IG de forma eficiente e eficaz necessita-se que a organização desses específicos tipos de dados obedeça aos padrões e normas referentes a uma Infraestrutura de Dados Espaciais (IDE), que pode ser conceituada como um conjunto de políticas, padrões, tecnologia e acordos institucionais para o acesso, compartilhamento e organização das IG \citep{DAmore2012ICTManagement, Kobben2013TowardsInfrastructure, Stock2012ToInfrastructure}.
 Quanto à classificação referente ao tipo de escala de implementação a IDE pode ser classificadas nos níveis: Global, Continental, Nacional, Regional, Local, Organizacional ou até mesmo Departamental, essa escolha vai depender basicamente do seu público alvo e do tipo de informação que a IDE vai organizar \citep{Bejar2012AnInfrastructures}, já quanto ao seu enfoque pode ser visto por dois pontos diferentes: O primeiro no nível mais Corporativo abrangendo os acordos institucionais, definição de políticas, normas e regulamentação para a sua implementação nas instituições, ocupando um nível de análise mais estratégico e o segundo pode ser analisado num nível mais Técnico abrangendo definição e especificação dos serviços de mapas e protocolos web, modelagem de dados e catálogos de metadados, ocupando um nível mais Operacional \citep{Cooper2013AViewpoint}. 
 Em regra, uma IDE está sob controle de uma entidade governamental que pode ser a entidade responsável pela produção, aquisição, manutenção, gerenciamento e compartilhamento deste específico tipo de IG, ou mesmo a entidade que atue apenas no campo político e administrativo \citep{Grus2011AnGoals}, essa heterogeneidade na administração e produção dos dados prejudica a interoperabilidade, limitando a utilização desses dados pelas diferentes corporações. Nos últimos anos, o conceito de governança através de práticas relacionadas à boa gestão dos recursos tem sido evidenciado pelas principais entidades, não muito diferente o Setor Público necessitou também de evoluir para melhorar a prestação de serviços públicos para a sociedade, neste cenário com o avanço da TIC e sob o conceito de e-Government que pode ser definido como as iniciativas do Governo Eletrônico para facilitar o acesso à informação para a sociedade, ampliando as discussões sobre a prestação dos serviços públicos com enfoque na sua eficácia e efetividade \citep{Borzacchiello2013EstimatingE-Cadastres}, as IDEs apresentam-se como importante ferramenta para realizar o aumento da eficácia e efetividade na utilização de recursos públicos.
 Este artigo está organizado da seguinte maneira: Na seção 1, realiza um apontamento para a importância de uma IDE apresentando seus principais conceitos e definições já na seção 2 apresentam as definições e conceitos da Infraestrutura Nacional de Dados Espaciais (INDE) existente no Brasil e destacando seus componentes. Na seção 3, ocorre o detalhamento do componente de Energia da INDE e na seção 4 apresenta uma proposta de implementação de uma IDE na componente de Energia, seguindo da sua Discussão e Conclusão.
-\citep{E}
+\end{multicols}
 
 \section{Infraestrutura Nacional de Dados Espaciais no Brasil}
 \label{sec2}
@@ -166,11 +183,28 @@ Texto
 
 \section{Metodologia para implantar uma Infraestrutura de Dados Espaciais}
 \label{sec4}
-Texto
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.7]{fig3}
+    \caption{Arquitetura IDE Energia}
+    \label{fig:my_label}
+\end{figure}
 
 \section{Resultados}
 \label{sec5}
+
+
 Texto
+
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{fig} 
+\caption{Modelagem Conceitual do Tema Energia}
+\label{fig:subim1}
+\end{figure}
 
 \section{Discuss\~ao}
 \label{sec6}
@@ -234,9 +268,8 @@ Texto
 %%   \Citep{dRob98}         ==>> (Della Robbia, 1998)
 %%   \Citeauthor{dRob98}    ==>> Della Robbia
 
-
+\begin{multicols}{2}
 %% References with bibTeX database:
-
 \bibliographystyle{model5-names}
 \bibliography{mendeley}
 
@@ -263,7 +296,7 @@ Texto
 % \bibitem[ ()]{}
 
 % \end{thebibliography}
-
+\end{multicols}
 \end{document}
 
 %%
