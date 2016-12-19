@@ -21,7 +21,7 @@
 %% $Id: elsarticle-template-5-harv.tex 159 2009-10-08 06:08:33Z rishi $
 %% $URL: http://lenova.river-valley.com/svn/elsbst/trunk/elsarticle-template-5-harv.tex $
 %%
-\documentclass[preprint,authoryear,12pt]{elsarticle}
+\documentclass[preprint,authoryear,11pt]{elsarticle}
 
 %% Use the option review to obtain double line spacing
 %% \documentclass[authoryear,preprint,review,12pt]{elsarticle}
@@ -55,7 +55,9 @@
 %%\usepackage{geometry}
 %%\geometry{legalpaper, landscape, margin=2in}
 \usepackage[a4paper, total={7in, 9in}]{geometry}
-
+\usepackage[utf8]{inputenc}
+\usepackage{url}
+\usepackage{hyperref}
 
 %% The amssymb package provides various useful mathematical symbols
 \usepackage{amssymb}
@@ -119,8 +121,8 @@
 %% \fntext[label3]{}
 
 %\title{}
-\title{Proposta de Infraestrutura de Dados Espaciais para o Setor El\'etrico no Brasil\tnoteref{t1}}
-\tnotetext[t1]{Artigo para Qualifica\c{c}\~ao de Mestrado no Programa de P\'os Gradua\c{c}\~ao em Geografia}
+\title{Proposta de Infraestrutura de Dados Espaciais para o Setor Elétrico no Brasil\tnoteref{t1}}
+\tnotetext[t1]{Artigo para Qualificação de Mestrado no Programa de Pós-Graduação em Geografia}
 %% use optional labels to link authors explicitly to addresses:
 %% \author[label1,label2]{<author name>}
 %% \address[label1]{<address>}
@@ -135,7 +137,7 @@
 \ead{osmarjr@unb.br}
 
 %\address{}
-\address{Universidade de Bras\'{\i}lia, Instituto de Ci\^encias Humanas, Departamento de Geografia, Bras\'{\i}lia, DF - Brasil}
+\address{Universidade de Brasília, Instituto de Ciências Humanas, Departamento de Geografia, Brasília, DF - Brasil}
 
 
 \cortext[cor1]{Aluno de Mestrado}
@@ -160,29 +162,41 @@
 % \linenumbers
 %% main text
 %\section{}
-\section{Introdu\c{c}\~ao}
+\section{Introdução}
 \label{sec1}
 \begin{multicols}{2}
-Com o advento e populariza\c{c}\~ao do Sistema de Infoma\c{c}\~ao Geogr\'afica (SIG) aliado com os avan\c{c}os decorrentes da evolu\c{c}\~ao da Tecnologia da Informa\c{c}\~ao e Comunicação (TIC) ocorrido nos \'ultimos anos, existe uma crescente demanda pela utiliza\c{c}\~ao das Informa\c{c}\~oes Geoespaciais (IG) abrangendo os mais diversos stakeholders em diferentes setores da sociedade \citep{Macharis2014AFlanders, Kounadi2016AdaptiveDatasets}.
+
+Com os avanços decorrentes da evolução dos meios de aquisição de dados geoespaciais (ex.: sensoriamento remoto, GPS, aerofotogrametria, conversão de dados geoespaciais analógicos para digitais) e das plataformas dos Sistemas de Informações Geográficas - SIG aliados com o desenvolvimento da Tecnologia da Informação e Comunicação - TIC, proporcionaram a popularização das informações geoespaciais, assim consideradas aquelas que possuem uma dimensão espacial, para servirem de subsídio de conhecimento aos tomadores de decisões nas mais diversas situações, escalas e importância na sociedade \citep{Macharis2014AFlanders, Kounadi2016AdaptiveDatasets, Bejar2012AnInfrastructures, Borzacchiello2013EstimatingE-Cadastres, Hamylton2012DevelopmentSeychelles}. O controle e o gerenciamento dos dados geoespaciais pode ser atribuídos a própria entidade responsável pela produção, manutenção e compartilhamento desses dados, ou por outras entidades que atuem apenas no campo político e administrativo, essa heterogeneidade no controle e gerenciamento prejudica a adequada descrição dos dados no preenchimentos do metadados, situação agravante no âmbito governamental por possui uma grande diversidade de instituições e de dados geoespaciais \citep{Grus2011AnGoals}. Algumas dificuldades surgiram com esse aumento exponencial da produção de dados geoespaciais, podemos citar como as principais, a não existência de padrões definidos e de metodologia para a sua produção, dificultando a interoperabilidade, e a dificuldade do conhecimento da existência dos dados geoespaciais e seu acesso, proporcionando a duplicidade de dados e assim acarretando aumento de custos \citep{concar}. 
+
+As boas práticas relacionadas a gestão dos recursos corporativos tem sido evidenciada e buscada pelas principais entidades governamentais e não governamentais, o conceito de Governo Eletrônico \citep{eping} que pode ser conceituado como iniciativas estatais para facilitar o acesso à informação para a sociedade por meio da Internet, ampliando as discussões sobre a prestação dos serviços públicos com enfoque no aumento da sua efetividade, neste cenário, uma Infraestrutura de Dados Espaciais - IDE apresenta-se, como importante ferramenta para o acesso as informações geoespaciais de forma simples, sem a necessidade de um conhecimento especializado, bastando apenas acesso a Internet para que o usuário comum possa usufruir dessas informações \citep{Borzacchiello2013EstimatingE-Cadastres}.
+
+Assim como para os demais setores da sociedade, o setor elétrico no Brasil abrangendo a geração, transmissão e distribuição de energia elétrica, possui uma crescente demanda por informações geoespaciais, podemos destacar os principais usuários para estas informações, o Ministério de Minas e Energia - MME, instituição responsável pela formulação e supervisão das políticas públicas na área de energia elétrica;   a Agência Nacional de Energia Elétrica - ANEEL, instituição responsável pela regulação e fiscalização dos serviços públicos de energia elétrica; a Empresa de Pesquisa Energética - EPE, instituição responsável pelos estudos e pesquisas para subsidiar o planejamento energético; Eletrobras, instituição responsável pelas operações destinadas ao suprimento de energia elétrica no Brasil; Operador Nacional do Sistema Elétrico - ONS, instituição responsável pela coordenação e controle da operação das instalações de geração e transmissão de energia elétrica no Sistema Interligado Nacional - SIN; Concessionárias, Autorizadas e Permissionárias dos serviços públicos de energia elétrica; Investidores e Empreendedores; e os cidadãos. A evidência desse grande número de usuários e de produtores de informações geoespaciais, demonstra a necessidade e a importância que uma IDE temática para o setor de energia pode subsidiar as tomadas de decisões que possuem como objetivos a melhora dos serviços públicos de energia elétrica e redução de custos na obtenção dessas informações geoespaciais.         
 
 
 
-Para a utilização das IG de forma eficiente e eficaz necessita-se que a organização desses específicos tipos de dados obedeça aos padrões e normas referentes a uma Infraestrutura de Dados Espaciais (IDE), que pode ser conceituada como um conjunto de políticas, padrões, tecnologia e acordos institucionais para o acesso, compartilhamento e organização das IG \citep{DAmore2012ICTManagement, Kobben2013TowardsInfrastructure, Stock2012ToInfrastructure}.
-Quanto à classificação referente ao tipo de escala de implementação a IDE pode ser classificadas nos níveis: Global, Continental, Nacional, Regional, Local, Organizacional ou até mesmo Departamental, essa escolha vai depender basicamente do seu público alvo e do tipo de informação que a IDE vai organizar \citep{Bejar2012AnInfrastructures}, já quanto ao seu enfoque pode ser visto por dois pontos diferentes: O primeiro no nível mais Corporativo abrangendo os acordos institucionais, definição de políticas, normas e regulamentação para a sua implementação nas instituições, ocupando um nível de análise mais estratégico e o segundo pode ser analisado num nível mais Técnico abrangendo definição e especificação dos serviços de mapas e protocolos web, modelagem de dados e catálogos de metadados, ocupando um nível mais Operacional \citep{Cooper2013AViewpoint}. 
-Em regra, uma IDE está sob controle de uma entidade governamental que pode ser a entidade responsável pela produção, aquisição, manutenção, gerenciamento e compartilhamento deste específico tipo de IG, ou mesmo a entidade que atue apenas no campo político e administrativo \citep{Grus2011AnGoals}, essa heterogeneidade na administração e produção dos dados prejudica a interoperabilidade, limitando a utilização desses dados pelas diferentes corporações. Nos últimos anos, o conceito de governança através de práticas relacionadas à boa gestão dos recursos tem sido evidenciado pelas principais entidades, não muito diferente o Setor Público necessitou também de evoluir para melhorar a prestação de serviços públicos para a sociedade, neste cenário com o avanço da TIC e sob o conceito de e-Government que pode ser definido como as iniciativas do Governo Eletrônico para facilitar o acesso à informação para a sociedade, ampliando as discussões sobre a prestação dos serviços públicos com enfoque na sua eficácia e efetividade \citep{Borzacchiello2013EstimatingE-Cadastres}, as IDEs apresentam-se como importante ferramenta para realizar o aumento da eficácia e efetividade na utilização de recursos públicos.
-Este artigo está organizado da seguinte maneira: Na seção 1, realiza um apontamento para a importância de uma IDE apresentando seus principais conceitos e definições já na seção 2 apresentam as definições e conceitos da Infraestrutura Nacional de Dados Espaciais (INDE) existente no Brasil e destacando seus componentes. Na seção 3, ocorre o detalhamento do componente de Energia da INDE e na seção 4 apresenta uma proposta de implementação de uma IDE na componente de Energia, seguindo da sua Discussão e Conclusão.
-\end{multicols}
+\section{Infraestrutura de Dados Espaciais}
 
-\section{Infraestrutura Nacional de Dados Espaciais no Brasil}
+Uma IDE pode ser entendida como um conjunto de políticas, padrões, tecnologias e acordos institucionais para o acesso, compartilhamento, interoperabilidade, organização e disseminação de dados geoespaciais, utilizando uma arquitetura baseada em Geo Serviços disponibilizados pela Internet, permitindo assim o acesso as informações geoespaciais \citep{DAmore2012ICTManagement, Kobben2013TowardsInfrastructure, Stock2012ToInfrastructure, Hendriks2012ReconsideringInfrastructure, NeamahJebur2013ANSDI, Makanga2010AAfrica}. As IDEs pode ser classificadas quanto ao tipo de escala de implementação em Global (ex.: \citeauthor{unggim}), Continental (ex.: \citeauthor{inspire}), Nacional (ex.: \citeauthor{inde,nsdi,cgdi}), Institucional (ex.: \citeauthor{geoportal}) ou Departamental, essa escolha vai depender basicamente do seu público alvo e do tipo de informação \citep{Bejar2012AnInfrastructures}, e quanto ao enfoque a IDE pode ser num primeiro nível mais corporativo abrangendo os acordos institucionais, definição de políticas, normais e regulamentação para a sua implementação nas instituições, ocupando um nível mais estratégico e num segundo nível mais técnico abrangendo definições e especificações dos serviços de mapas e protocolos web, modelagem de dados e catálogos de metadados, neste caso ocupando um nível mais operacional \citep{Cooper2013AViewpoint}. 
+
+\subsection{Infraestrutura Nacional de Dados Espaciais no Brasil}
 \label{sec2}
-Texto
+O Decreto de número 6.666 de 2008 do Poder Executivo Federal, considerado o Marco Legal da IDE do Brasil, regulamentou a Infraestrutura Nacional de Dados Espaciais - INDE e a implantação do Diretório Brasileiro de Dados Geoespaciais (\citeauthor{dbdg}), que deverá utilizar o Portal Brasileiro de Dados Geoespaciais, denominado “Sistema de Informações Geográficas do Brasil - SIG Brasil”, como o portal principal para o acesso aos dados geoespaciais, seus metadados e  os Geo Serviços relacionados \citep{d6666}. A Comissão Nacional de Cartografia - CONCAR, órgão colegiado do Ministério do Planejamento, Orçamento e Gestão - MPOG responsável pelo Plano de Ação para Implantação da INDE \citep{concar}, compõem-se do Conselho Superior ocupando um nível mais estratégico para a implantação da INDE com as definições de políticas e normas, e também existe para subsidiar as ações da CONCAR, o Comitê Técnico e os Grupos de Trabalhos ocupando um nível mais operacional da INDE. Quanto as Normas, Padrões e Especificações Técnicas do Sistema Cartográfico Nacional - SCN estabelecidas para a INDE, o Exército Brasileiro - EB através da Diretoria de Serviços Geográfico - DSG responde pelo mapeamento sistemático com as escalas de 1:250.000 e maiores, o Instituto Brasileiro de Geografia e Estatística - IBGE responde pela rede geodésica fundamental e pelo mapeamento sistemático das escalas menores de 1:250.000, a Marinha do Brasil - MB através da Diretoria de Hidrografia e Navegação - DHN pelas cartas náuticas de qualquer escala e a Aeronáutica através do Instituto de Cartografia Aeronáutica -ICA  pelas cartas aeronáuticas de qualquer escala \citep{dl243}.    
 
-\section{Infraestrutura de Dados Espaciais no Setor El\'etrico}
+Ainda no decreto que regulamentou a INDE, foram definidos os seguintes objetivos nas esferas federal, estadual, distrital e municipal: Promover o ordenamento da geração, armazenamento, acesso, compartilhamento, disseminação e uso dos dados geoespaciais; promover a utilização dos padrões e normas homologadas pela CONCAR; e evitar a duplicidade de ações e desperdiço de recursos públicos na obtenção de dados geoespaciais \citep{d6666}. 
+
+A INDE tem como base os seguintes documentos para a suas definições de regras e padrões, assim como para a sua fundamentação teórica: especificações técnicas para a Estruturação de Dados Geoespaciais Vetoriais - EDGV \citep{edgv}, para a Aquisição de Dados Geoespaciais Vetoriais - ADGV \citep{adgv}, dos Produtos de Conjuntos de Dados Geoespaciais - PCDG \citep{pcdg}, para a Representação de Dados Geoespaciais - RDG \citep{mt347001,mt347002}, para o Controle de Qualidade dos Produtos de Conjuntos de Dados Geoespaciais - CQPCDG \citep{cqpcdg}, do Perfil de Metadados Geoespaciais do Brasil - Perfil MGB \citep{pmgb}, dos Padrões de Interoperabilidade Governo Eletrônico - ePING \citep{eping} e da Open Geospatial Consortium - OGC \citep{ogc}. A Mapoteca Nacional Digital - MND criada para a disponibilização dos mapeamentos sistemáticos dos diversos órgãos que respondem pelo SCN, pode ser subdividida em 3 componentes, a estruturação vetorial, matricial e a de metadados. Com relação a componente vetorial, as especificações técnicas da ADGV para a aquisição da geometria dos dados geoespaciais e a EDGV para a modelagem conceitual destinam-se especialmente aos desenvolvedores e usuários de SIG, dentro da modelagem conceitual dos dados geoespaciais as classes de objetos são agrupados nas seguintes categorias de informações: Abastecimento de Água e Saneamento Básico, Administração Pública, Educação e Cultura, Energia e Comunicações, Estrutura Econômica, Hidrografia, Limites, Localidades, Pontos de Referência, Relevo, Saúde e Serviço Social, Sistemas de Transportes e Vegetação \citep{edgv}. Este artigo propõe a complementação da categoria Energia e Comunicação com uma abordagem mais temática específica para os usuários do setor de energia do Brasil. 
+
+\subsection{Infraestrutura de Dados Espaciais no Setor Elétrico}
 \label{sec3}
-Texto
+
+A já enfatizada importância de uma IDE temática para o setor de energia no Brasil devido a sua pluralidade de atores produzindo e utilizando os dados geoespaciais, também possui a CONCAR como o órgão principal para estabelecer os padrões de uma IDE temática do setor de energia de forma que assegure a sua compatibilidade com o que está prescrito na INDE. No que concerne quais classes de objetos que vão ser incluídas nessa modelagem conceitual temática e como elas se relacionarão, cabe aos usuários em geral atuantes no setor de energia elétrica estabelecer.       
 
 \section{Metodologia para implantar uma Infraestrutura de Dados Espaciais}
 \label{sec4}
+
+Uma IDE busca facilitar o acesso as informações geoespaciais de forma que elas sejam altamente interoperáveis, a arquitetural ideal para essas funcionalidades trata-se da Arquitetura Orientada a Serviços - AOS utilizando os serviços web baseados em padrões simples e não proprietários para a comunicação e o intercâmbio de dados geoespaciais. Os principais elementos utilizados são os dados geoespaciais, metadados desses dados e os geo serviços web, assim podemos dividir a arquitetura de uma IDE na Camada de Dados, que contém os dados geoespaciais e os metadados associados a esses dados, na Camada de Serviços em que os dados geoespaciais e os metadados são publicados em geo serviços e a Camada de aplicação onde os geo serviços obedecem aos padrões e protocolos web para seu acesso via Internet \citep{Kobben2013TowardsInfrastructure,Li2011Semantic-basedInfrastructure,Miro2010MetadataSystems}.
+Escrever: Descrever a modelagem conceitual/banco de dados, GeoServiços do Setor Elétrico, Portal de Geoprocessamento.
+\end{multicols}
 
 \begin{figure}[H]
     \centering
@@ -191,32 +205,36 @@ Texto
     \label{fig:my_label}
 \end{figure}
 
+
 \section{Resultados}
 \label{sec5}
-
-
-Texto
-
-
+\begin{multicols}{2}
+\end{multicols}
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=\textwidth]{fig} 
+\includegraphics[scale=0.8,angle=90]{fig} 
 \caption{Modelagem Conceitual do Tema Energia}
 \label{fig:subim1}
 \end{figure}
 
-\section{Discuss\~ao}
+\begin{multicols}{2}
+
+\section{Discussão}
 \label{sec6}
 Texto
 
-\section{Conclus\~ao}
+\section{Conclusão}
 \label{sec7}
 Texto
 
 \appendix
-\section{Descri\c{c}\~ao dos atributos}
+\section{Descrição dos atributos}
 \label{appendix}
+
+\end{multicols}
+
+"Tabela com a Descrição dos Atributos"
 
 %% The Appendices part is started with the command \appendix;
 %% appendix sections are then done as normal sections
@@ -271,7 +289,8 @@ Texto
 \begin{multicols}{2}
 %% References with bibTeX database:
 \bibliographystyle{model5-names}
-\bibliography{mendeley}
+%%\bibliography{mendeley}
+\bibliography{sample}
 
 %% Authors are advised to submit their bibtex database files. They are
 %% requested to list a bibtex style file in the manuscript if they do
